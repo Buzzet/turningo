@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+  flex-wrap: wrap;
 }
 .field{
     background-color: rgb(45, 71, 19);
@@ -12,6 +13,7 @@
     border-radius: 15px;
     display: flex;
     flex-wrap: wrap;
+  margin: 20px;
 }
 .upperLeft{
     width: calc(50% - 2px);
@@ -75,5 +77,18 @@
   justify-content: center;
   align-items: center;
   font-size: 50px;
+  color: white;
+}
+
+.delete{
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  margin-left: 270px;
+  position: relative; top: -411px; left: 8px;
+  background-color: #E11A27;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
