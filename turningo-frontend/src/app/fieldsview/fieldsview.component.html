@@ -1,0 +1,20 @@
+<div class="outer">
+    <div class="field" *ngFor="let field of courts">
+      <div class="fieldName">{{field.courtname}}</div>
+        <div class="upperLeft"></div>
+        <div class="upperRight"></div>
+        <div class="upperMiddle"></div>
+        <div class="lowerMiddle"></div>
+        <div class="lowerLeft"></div>
+        <div class="lowerRight"></div>
+    </div>
+    <div class="addField" (click)="onFieldClick()" >
+      <div class="fieldName">+</div>
+        <div class="upperLeft"></div>
+        <div class="upperRight"></div>
+        <div class="upperMiddle"></div>
+        <div class="lowerMiddle"></div>
+        <div class="lowerLeft"></div>
+        <div class="lowerRight"></div>
+    </div>
+</div>

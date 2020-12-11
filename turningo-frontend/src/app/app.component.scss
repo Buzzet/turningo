@@ -1,0 +1,17 @@
+.outer{
+    display: flex;
+    justify-content: center;
+}
+
+.outlet{
+    width: calc(100% - 100px);
+    height: 100vh;
+    background-color: rgba(158, 233, 128, 0.5);
+}
+
+.nav{
+    width: 100px;
+    height: 100vh;
+    background-color: rgb(56, 56, 146);
+
+}
