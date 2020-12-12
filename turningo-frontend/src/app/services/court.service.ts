@@ -14,4 +14,17 @@ export class CourtService {
   public getCourts(): Observable<Court[]> {
     return this.http.get<Court[]>('http://localhost:8080/api/courts');
   }
+
+  public addCourt(court: Court): void {
+    this.http.post<Court>('http://localhost:8080/api/courts', court).subscribe(resp => {
+      console.log('server response');
+      console.log(resp);
+    });
+  }
+
+  deleteCourt(id: any): void {
+    this.http.delete('http://localhost:8080/api/courts/' + id).subscribe(resp => {
+
+    });
+  }
 }

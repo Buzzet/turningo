@@ -1,4 +1,4 @@
-export class Court {
-  public id = '';
-  public courtname = '';
+export interface Court {
+  id: any;
+  courtname: string;
 }
