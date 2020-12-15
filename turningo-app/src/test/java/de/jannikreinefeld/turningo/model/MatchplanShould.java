@@ -35,7 +35,7 @@ public class MatchplanShould {
         playcards.add(Playcard.builder().matchesPlayed(0).build());
 
         //when
-        final Matchplan plan = new Matchplan(courts, playcards);
+        final Matchplan plan = Matchplan.getCurrentMatchplan(courts, playcards);
 
         //then
         assertThat(plan.getMatchplan().size()).isEqualTo(courts.size());
@@ -43,7 +43,7 @@ public class MatchplanShould {
 
 
     @Test
-    public void createADifferentMapEachTime() {
+    public void createADifferentMapEachTimeANewOneIsCreated() {
         //given
         final List<Court> courts = new LinkedList<>();
         courts.add(Court.builder().courtname("1").id("1").build());
@@ -64,8 +64,8 @@ public class MatchplanShould {
         playcards.add(Playcard.builder().id("10").matchesPlayed(0).build());
         playcards.add(Playcard.builder().id("11").matchesPlayed(0).build());
 
-        final Matchplan plan1 = new Matchplan(courts, playcards);
-        final Matchplan plan2 = new Matchplan(courts, playcards);
+        final Matchplan plan1 = Matchplan.getCurrentMatchplan(courts, playcards);
+        final Matchplan plan2 = Matchplan.getCurrentMatchplan(courts, playcards);
 
         System.out.println(plan1);
         assertThat(plan1).isNotEqualTo(plan2);
@@ -85,7 +85,7 @@ public class MatchplanShould {
         playcards.add(Playcard.builder().id("2").matchesPlayed(0).build());
 
         //when
-        final Matchplan plan = new Matchplan(courts, playcards);
+        final Matchplan plan = Matchplan.getCurrentMatchplan(courts, playcards);
 
         //then
         assertThat(plan.getMatchplan().size()).isEqualTo(courts.size());

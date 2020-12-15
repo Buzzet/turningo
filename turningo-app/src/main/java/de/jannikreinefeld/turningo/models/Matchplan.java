@@ -6,10 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Setter
@@ -24,9 +21,18 @@ public class Matchplan {
     public Matchplan(final Map<String, ArrayList<Playcard>> matchplan) {
         this.matchplan = matchplan;
     }
-    
-    public static Matchplan matchNewGame(final List<Court> courts, final List<Playcard> playcards) {
+
+    public static Matchplan getCurrentMatchplan(final List<Court> courts, final List<Playcard> playcards) {
+        if (playcards.stream().anyMatch(playcard -> playcard.getMatchesPlayed() > 0)) {
+            return Matchplan.matchRunningGame(courts, playcards);
+        } else {
+            return Matchplan.matchNewGame(courts, playcards);
+        }
+    }
+
+    private static Matchplan matchNewGame(final List<Court> courts, final List<Playcard> playcards) {
         int i = 0;
+        Collections.shuffle(playcards);
         final Map<String, ArrayList<Playcard>> matchplan = new HashMap<>();
         for (final Court court : courts) {
             if (i + 1 < playcards.size()) {
@@ -48,8 +54,8 @@ public class Matchplan {
         return new Matchplan(matchplan);
     }
 
-    private void matchRunningGame(final List<Court> courts, final List<Playcard> playcards) {
-
+    private static Matchplan matchRunningGame(final List<Court> courts, final List<Playcard> playcards) {
+        return null;
     }
 
 

@@ -26,7 +26,7 @@ public class PlayerController {
         if (playcardOptional.isPresent()) {
             playcard = playcardOptional.get();
             if (playcard.getPlayer2() != null) {
-                throw new TeamAlreadyFullException("Das Team " + player.getTeam() + " hat bereits zwei Spieler und ist damit voll");
+                throw new TeamAlreadyFullException("Das Team " + player.getTeam() + " hat bereits zwei Spieler und ist damit voll!");
             }
             playcard.setPlayer2(player.toPlayer());
         } else {

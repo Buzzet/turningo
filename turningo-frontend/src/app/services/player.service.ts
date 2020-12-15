@@ -16,9 +16,8 @@ export class PlayerService {
       this.snackBar.open(player.firstName + ' erfolgreich hinzugefügt ✅','', {
         duration: 4000,
       });
-    }, error => {
-      console.log(error);
-      this.snackBar.open( ' ❌ ' + error.error.message + ' ❌ ','', {
+    }, errorResponse => {
+      this.snackBar.open( ' ❌ ' + errorResponse.error.message + ' ❌ ','', {
         duration: 15000,
       });
     });
