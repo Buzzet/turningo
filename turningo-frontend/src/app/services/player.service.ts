@@ -13,8 +13,13 @@ export class PlayerService {
 
   public addPlayer(player: Player): void{
     this.http.post('http://localhost:8080/api/players', player).subscribe(resp => {
-      this.snackBar.open('Erfolg!','', {
-        duration: 2000,
+      this.snackBar.open(player.firstName + ' erfolgreich hinzugefügt ✅','', {
+        duration: 4000,
+      });
+    }, error => {
+      console.log(error);
+      this.snackBar.open( ' ❌ ' + error.error.message + ' ❌ ','', {
+        duration: 15000,
       });
     });
   }

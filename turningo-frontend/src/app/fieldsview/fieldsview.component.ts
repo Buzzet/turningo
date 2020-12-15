@@ -14,7 +14,7 @@ export class FieldsviewComponent implements OnInit {
   courts: Court[] = [];
 
   ngOnInit(): void {
-    interval(1000)
+    interval(10000)
       .subscribe(() => {
         this.courtService.getCourts().subscribe(res => {
           if (this.courts !== res){

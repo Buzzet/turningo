@@ -14,12 +14,14 @@ public class CourtController {
     @Autowired
     MongoService mongoService;
 
-    @GetMapping("/courts")
+    @CrossOrigin
+    @GetMapping("/api/courts")
     public List<Court> getCourts() {
         return this.mongoService.getAllCourts();
     }
 
-    @GetMapping("/courts/{courtId}")
+    @CrossOrigin
+    @GetMapping("/api/courts/{courtId}")
     public Court getCourt(@PathVariable final String courtId) {
         final Optional<Court> court = this.mongoService.getCourtById(courtId);
         if (court.isPresent()) {
@@ -28,8 +30,15 @@ public class CourtController {
         return null; //TODO ExceptionMapping
     }
 
-    @PostMapping("/courts")
+    @CrossOrigin
+    @PostMapping("/api/courts")
     public Court addCourt(@RequestBody final Court court) {
         return this.mongoService.addCourt(court);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/api/courts/{courtId}")
+    public void deleteCourt(@PathVariable final String courtId) {
+        this.mongoService.deleteCourtById(courtId);
     }
 }
