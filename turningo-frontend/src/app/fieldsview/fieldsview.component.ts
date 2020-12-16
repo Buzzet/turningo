@@ -3,6 +3,9 @@ import {CourtService} from '../services/court.service';
 import {Court} from '../models/court';
 import {interval} from 'rxjs';
 import {MatchplanService} from '../services/matchplan.service';
+import {MatDialog} from '@angular/material/dialog';
+import {NewPlayerComponent} from '../new-player/new-player.component';
+import {SubmitResultsComponent} from '../submit-results/submit-results.component';
 
 @Component({
   selector: 'app-fieldsview',
@@ -11,7 +14,7 @@ import {MatchplanService} from '../services/matchplan.service';
 })
 export class FieldsviewComponent implements OnInit {
 
-  constructor(private courtService: CourtService, public matchplanService: MatchplanService) { }
+  constructor(private courtService: CourtService, public matchplanService: MatchplanService, public dialog: MatDialog) { }
   courts: Court[] = [];
 
   ngOnInit(): void {
@@ -72,5 +75,22 @@ export class FieldsviewComponent implements OnInit {
   getTeamNameByMatchID(id: string, teamNumber: number, playerNumber: number): string {
     // @ts-ignore
     return this.matchplanService.matchplan.matchplan[id][teamNumber].team;
+  }
+
+  submitResults(id: string): void {
+    if (this.fieldHasAMatch(id)){
+      const dialogRef = this.dialog.open(SubmitResultsComponent, {
+        width: '550px',
+        data: { fieldId: id}
+      });
+      dialogRef.afterClosed().subscribe(x => {
+        this.matchplanService.matchWithSwissSystem();
+      });
+    }
+  }
+
+  getWinsByMatchID(id: string, teamNumber: number): string {
+    // @ts-ignore
+    return this.matchplanService.matchplan.matchplan[id][teamNumber].amountWins;
   }
 }

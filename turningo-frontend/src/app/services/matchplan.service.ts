@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Matchplan} from '../models/matchplan';
-import {Observable} from 'rxjs';
+import {interval, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

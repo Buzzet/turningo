@@ -1,25 +1,29 @@
 <div class="outer">
-    <div class="field" *ngFor="let field of courts">
+    <div class="field" *ngFor="let field of courts" [ngClass]="fieldHasAMatch(field.id) ? 'btn' : ''" (click)="submitResults(field.id)">
       <div class="fieldName noselect">{{field.courtname}}</div>
       <div class="playcard1" *ngIf="fieldHasAMatch(field.id)">
         <div class="firstName">{{getFirstNameByMatchID(field.id, 0, 0)}}</div>
         <div class="lastName">{{getLastNameByMatchID(field.id, 0, 0)}}</div>
         <div class="teamName">Team: {{getTeamNameByMatchID(field.id, 0, 0)}}</div>
+        <div class="wins">Wins: {{getWinsByMatchID(field.id, 0)}}</div>
       </div>
       <div class="playcard2" *ngIf="fieldHasAMatch(field.id)">
         <div class="firstName">{{getFirstNameByMatchID(field.id, 0, 1)}}</div>
         <div class="lastName">{{getLastNameByMatchID(field.id, 0, 1)}}</div>
         <div class="teamName">Team: {{getTeamNameByMatchID(field.id, 0, 1)}}</div>
+        <div class="wins">Wins: {{getWinsByMatchID(field.id, 0)}}</div>
       </div>
       <div class="playcard3" *ngIf="fieldHasAMatch(field.id)">
         <div class="firstName">{{getFirstNameByMatchID(field.id, 1, 0)}}</div>
         <div class="lastName">{{getLastNameByMatchID(field.id, 1, 0)}}</div>
         <div class="teamName">Team: {{getTeamNameByMatchID(field.id, 1, 0)}}</div>
+        <div class="wins">Wins: {{getWinsByMatchID(field.id, 1)}}</div>
       </div>
       <div class="playcard4" *ngIf="fieldHasAMatch(field.id)">
         <div class="firstName">{{getFirstNameByMatchID(field.id, 1, 1)}}</div>
         <div class="lastName">{{getLastNameByMatchID(field.id, 1, 1)}}</div>
         <div class="teamName">Team: {{getTeamNameByMatchID(field.id, 1, 1)}}</div>
+        <div class="wins">Wins: {{getWinsByMatchID(field.id, 1)}}</div>
       </div>
         <div class="upperLeft"></div>
         <div class="upperRight"></div>

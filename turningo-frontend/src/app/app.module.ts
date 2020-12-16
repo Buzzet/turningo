@@ -13,13 +13,15 @@ import {MatInputModule} from '@angular/material/input';
 import { NewPlayerComponent } from './new-player/new-player.component';
 import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SubmitResultsComponent } from './submit-results/submit-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FieldsviewComponent,
-    NewPlayerComponent
+    NewPlayerComponent,
+    SubmitResultsComponent
   ],
   imports: [
     BrowserModule,

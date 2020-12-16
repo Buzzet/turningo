@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -30,9 +31,12 @@ public class Matchplan {
         }
     }
 
-    private static Matchplan matchNewGame(final List<Court> courts, final List<Playcard> playcards) {
+    private static Matchplan matchNewGame(final List<Court> courts, List<Playcard> playcards) {
         int i = 0;
         Collections.shuffle(playcards);
+        System.out.println(playcards);
+        playcards = playcards.stream().sorted((playcard1, playcard2) -> Integer.compare(playcard2.getAmountWins(), playcard1.getAmountWins())).collect(Collectors.toList());
+        System.out.println(playcards);
         final Map<String, ArrayList<Playcard>> matchplan = new HashMap<>();
         for (final Court court : courts) {
             if (i + 1 < playcards.size()) {
@@ -55,6 +59,18 @@ public class Matchplan {
     }
 
     private static Matchplan matchRunningGame(final List<Court> courts, final List<Playcard> playcards) {
+        final Optional<Playcard> playcardOptional = playcards.stream().min((playcard1, playcard2) ->
+                Integer.compare(playcard1.getMatchesPlayed(),
+                        playcard2.getMatchesPlayed()));
+        int minAmountsPlayed = 0;
+        if (playcardOptional.isPresent()) {
+            minAmountsPlayed = playcardOptional.get().getMatchesPlayed();
+        }
+        final int finalMinAmountsPlayed = minAmountsPlayed;
+        final List<Playcard> playcardsWithTheLeastAmountOfGame = playcards.stream().filter(playcard -> playcard.getMatchesPlayed() == finalMinAmountsPlayed).collect(Collectors.toList());
+        if (playcardsWithTheLeastAmountOfGame.size() >= 2) {
+            return Matchplan.matchNewGame(courts, playcardsWithTheLeastAmountOfGame);
+        }
         return null;
     }
 

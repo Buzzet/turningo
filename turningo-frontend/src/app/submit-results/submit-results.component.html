@@ -1,0 +1,33 @@
+
+<div class="outer">
+  <h1 mat-dialog-title>Ergebnis eintragen</h1>
+  <div class="teams">
+    <div class="team1">
+      {{this.matchplanService.matchplan.matchplan[data.fieldId][0].team}}
+    </div>
+    <div class="devider">
+    vs
+    </div>
+    <div class="team2">
+      {{this.matchplanService.matchplan.matchplan[data.fieldId][1].team}}
+    </div>
+  </div>
+  <div class="results">
+    <div class="resultTeam1">
+        <input [(ngModel)]="pointsTeam1">
+    </div>
+    <div class="devider">
+    :
+    </div>
+    <div class="resultTeam2">
+        <input [(ngModel)]="pointsTeam2">
+    </div>
+  </div>
+  <div class="buttons">
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" (click)="onClickAbbrechen()">Abbrechen</button>
+      <button mat-raised-button color="primary" (click)="onClickSpeichern()" cdkFocusInitial>Speichern</button>
+    </div>
+  </div>
+
+</div>

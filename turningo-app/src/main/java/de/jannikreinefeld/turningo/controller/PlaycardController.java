@@ -40,6 +40,7 @@ public class PlaycardController {
         return null; //TODO ErrorResponse
     }
 
+    @CrossOrigin
     @PutMapping("/api/playcard")
     public Playcard updatePlaycard(@RequestBody final Playcard playcard) {
         return this.mongo.updatePlaycard(playcard);

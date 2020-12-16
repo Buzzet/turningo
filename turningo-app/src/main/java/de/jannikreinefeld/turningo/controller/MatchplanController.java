@@ -16,11 +16,8 @@ public class MatchplanController {
     @CrossOrigin
     @GetMapping("/api/matchplan/swiss-system")
     public Matchplan getMatchplanSwissSystem() {
-        if (this.mongoService.getAllMatchplans() == null) {
-            final Matchplan matchplan = Matchplan.getCurrentMatchplan(this.mongoService.getAllCourts(), this.mongoService.getAllPlaycards());
-            this.mongoService.saveMatchplan(matchplan);
-            return matchplan;
-        }
-        return this.mongoService.getAllMatchplans();
+        final Matchplan matchplan = Matchplan.getCurrentMatchplan(this.mongoService.getAllCourts(), this.mongoService.getAllPlaycards());
+        this.mongoService.saveMatchplan(matchplan);
+        return matchplan;
     }
 }
