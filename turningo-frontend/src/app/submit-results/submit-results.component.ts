@@ -43,4 +43,14 @@ export class SubmitResultsComponent implements OnInit {
     this.resultService.updatePlaycard(playcardTeam2);
     this.dialogRef.close();
   }
+
+  getTeam1Name(): string{
+    // @ts-ignore
+    return this.matchplanService.matchplan.matchplan[data.fieldId][0].team;
+  }
+
+  getTeam2Name(): string{
+    // @ts-ignore
+    return this.matchplanService.matchplan.matchplan[data.fieldId][1].team;
+  }
 }

@@ -3,13 +3,13 @@
   <h1 mat-dialog-title>Ergebnis eintragen</h1>
   <div class="teams">
     <div class="team1">
-      {{this.matchplanService.matchplan.matchplan[data.fieldId][0].team}}
+      {{getTeam1Name()}}
     </div>
     <div class="devider">
     vs
     </div>
     <div class="team2">
-      {{this.matchplanService.matchplan.matchplan[data.fieldId][1].team}}
+      {{getTeam2Name()}}
     </div>
   </div>
   <div class="results">
