@@ -1,8 +1,10 @@
 package de.jannikreinefeld.turningo.models;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class PlayerRequest {
     private String firstName;
     private String lastName;

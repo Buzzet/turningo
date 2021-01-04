@@ -1,6 +1,5 @@
 package de.jannikreinefeld.turningo.dao;
 
-import de.jannikreinefeld.turningo.exceptions.PlaycardNotFoundException;
 import de.jannikreinefeld.turningo.models.Court;
 import de.jannikreinefeld.turningo.models.Matchplan;
 import de.jannikreinefeld.turningo.models.Playcard;
@@ -60,10 +59,7 @@ public class MongoService {
     }
 
     public Playcard updatePlaycard(final Playcard playcard) {
-        if (this.playcardRepo.findById(playcard.getId()).isPresent()) {
-            return this.playcardRepo.save(playcard);
-        }
-        throw new PlaycardNotFoundException("Du hast versucht eine Playcard zu speichern, welche es noch nicht gibt!");
+        return this.playcardRepo.save(playcard);
     }
 
     public void deleteCourtById(final String courtId) {

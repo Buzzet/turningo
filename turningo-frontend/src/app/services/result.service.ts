@@ -11,7 +11,7 @@ export class ResultService {
   constructor(private http: HttpClient) { }
 
   public updatePlaycard(playcard: Playcard): void{
-    this.http.put(environment.apiUrl = '/api/playcard', playcard).subscribe(resp => {
+    this.http.put(environment.apiUrl + '/api/playcard', playcard).subscribe(resp => {
     });
   }
 }

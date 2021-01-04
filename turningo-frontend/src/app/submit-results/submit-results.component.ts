@@ -46,11 +46,11 @@ export class SubmitResultsComponent implements OnInit {
 
   getTeam1Name(): string{
     // @ts-ignore
-    return this.matchplanService.matchplan.matchplan[data.fieldId][0].team;
+    return this.matchplanService.matchplan.matchplan[this.data.fieldId][0].team;
   }
 
   getTeam2Name(): string{
     // @ts-ignore
-    return this.matchplanService.matchplan.matchplan[data.fieldId][1].team;
+    return this.matchplanService.matchplan.matchplan[this.data.fieldId][1].team;
   }
 }

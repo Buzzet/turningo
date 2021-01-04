@@ -4,6 +4,8 @@ import de.jannikreinefeld.turningo.dao.MongoService;
 import de.jannikreinefeld.turningo.exceptions.TeamAlreadyFullException;
 import de.jannikreinefeld.turningo.models.Playcard;
 import de.jannikreinefeld.turningo.models.PlayerRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +20,13 @@ public class PlayerController {
     @Autowired
     MongoService mongoService;
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @CrossOrigin
     @PostMapping("/api/players")
     public Playcard addPlayer(@RequestBody final PlayerRequest player) {
+        this.logger.info("Detected /api/players request");
+        this.logger.info(player.toString());
         final Optional<Playcard> playcardOptional = this.mongoService.getPlaycardByTeam(player.getTeam());
         final Playcard playcard;
         if (playcardOptional.isPresent()) {
