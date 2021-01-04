@@ -1,24 +1,22 @@
 package de.jannikreinefeld.turningo.models;
 
-import io.swagger.v3.oas.annotations.Hidden;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
 @ToString
 @Builder
+@EqualsAndHashCode
 public class Playcard {
 
-  @Hidden
-  @Id
-  private String id;
-  private Player player;
-  private String team;
-  private int amountWins;
-  private int pointDifference;
+    @Id
+    private String id;
+    private Player player1;
+    private Player player2;
+    private String team;
+    private int amountWins;
+    private int pointDifference;
+    private int matchesPlayed;
 
 }

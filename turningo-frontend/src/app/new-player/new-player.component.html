@@ -1,0 +1,28 @@
+
+<h1 mat-dialog-title>Neuen Spieler hinzufügen</h1>
+<div mat-dialog-content>
+<mat-form-field>
+  <mat-label>Vorname</mat-label>
+  <input matInput [(ngModel)]="player.firstName">
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Nachname</mat-label>
+  <input matInput [(ngModel)]="player.lastName">
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Team Name</mat-label>
+  <input matInput [(ngModel)]="player.team">
+</mat-form-field>
+<mat-form-field>
+  <mat-label>e-mail</mat-label>
+  <input matInput [(ngModel)]="player.eMail">
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Telefonnummer</mat-label>
+  <input matInput [(ngModel)]="player.phone">
+</mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onClickAbbrechen()">Abbrechen</button>
+  <button mat-raised-button color="primary" (click)="onClickSpeichern()" cdkFocusInitial>Speichern</button>
+</div>

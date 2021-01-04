@@ -1,0 +1,60 @@
+.outer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.teams{
+  width: 80%;
+  height: 110px;
+  display: flex;
+  font-size: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results{
+  width: 80%;
+  height: 110px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30px;
+}
+
+.buttons{
+  width: 95%;
+  height: 70px;
+}
+
+.resultTeam1{
+  width: 50px;
+  height: 80%;
+  display: flex;
+  align-items: center;
+}
+.resultTeam2{
+  width: 50px;
+  height: 80%;
+  display: flex;
+  align-items: center;
+}
+.resultTeam1 > input{
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.resultTeam2 > input{
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+
+button{
+  width: 49%;
+}
+

@@ -21,17 +21,17 @@ public class PlaycardController {
 
     private static final Logger log = LoggerFactory.getLogger(TurningoApplication.class);
 
-    @PostMapping("/playcard")
+    @PostMapping("/api/playcard")
     public PlaycardResponse createPlaycard(@RequestBody final Playcard playcard) {
         return this.mongo.addPlaycard(playcard);
     }
 
-    @GetMapping("/playcard")
+    @GetMapping("/api/playcard")
     public List<Playcard> getAllPlaycards() {
         return this.mongo.getAllPlaycards();
     }
 
-    @GetMapping("/playcard/{playcardId}")
+    @GetMapping("/api/playcard/{playcardId}")
     public Playcard getPlaycard(@PathVariable final String playcardId) {
         final Optional<Playcard> playcardOptional = this.mongo.getPlaycard(playcardId);
         if (playcardOptional.isPresent()) {
@@ -40,12 +40,8 @@ public class PlaycardController {
         return null; //TODO ErrorResponse
     }
 
-    @GetMapping("/teams/{teamName}")
-    public List<Playcard> getTeam(@PathVariable final String teamName) {
-        return this.mongo.getTeam(teamName);
-    }
-
-    @PutMapping("/playcard")
+    @CrossOrigin
+    @PutMapping("/api/playcard")
     public Playcard updatePlaycard(@RequestBody final Playcard playcard) {
         return this.mongo.updatePlaycard(playcard);
     }
