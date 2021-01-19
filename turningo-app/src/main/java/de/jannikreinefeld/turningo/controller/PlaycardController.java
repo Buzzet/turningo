@@ -26,6 +26,7 @@ public class PlaycardController {
         return this.mongo.addPlaycard(playcard);
     }
 
+    @CrossOrigin
     @GetMapping("/api/playcard")
     public List<Playcard> getAllPlaycards() {
         return this.mongo.getAllPlaycards();

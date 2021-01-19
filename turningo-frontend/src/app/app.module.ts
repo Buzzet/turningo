@@ -14,6 +14,8 @@ import { NewPlayerComponent } from './new-player/new-player.component';
 import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SubmitResultsComponent } from './submit-results/submit-results.component';
+import { TabelleComponent } from './tabelle/tabelle.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { SubmitResultsComponent } from './submit-results/submit-results.componen
     NavbarComponent,
     FieldsviewComponent,
     NewPlayerComponent,
-    SubmitResultsComponent
+    SubmitResultsComponent,
+    TabelleComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { SubmitResultsComponent } from './submit-results/submit-results.componen
     MatButtonModule,
     MatInputModule,
     FormsModule,
+    MatTableModule,
     MatSnackBarModule
   ],
   providers: [],
