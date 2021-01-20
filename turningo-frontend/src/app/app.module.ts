@@ -17,6 +17,7 @@ import { SubmitResultsComponent } from './submit-results/submit-results.componen
 import { TabelleComponent } from './tabelle/tabelle.component';
 import {MatTableModule} from '@angular/material/table';
 import { TournamentDeleteWarningPopupComponent } from './tournament-delete-warning-popup/tournament-delete-warning-popup.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { TournamentDeleteWarningPopupComponent } from './tournament-delete-warni
     MatButtonModule,
     MatInputModule,
     FormsModule,
+    MatIconModule,
     MatTableModule,
     MatSnackBarModule
   ],

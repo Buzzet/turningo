@@ -1,5 +1,9 @@
 <div class="outer">
-    <div class="btnNewPlayer btn noselect" (click)="openNewPlayerDialog()">New Player</div>
+  <div class="btnNewPlayer" (click)="openNewPlayerDialog()">
+    <button mat-raised-button color="basic" aria-label="Add new player">
+      <mat-icon [inline]="true">person_add_alt_1</mat-icon>
+    </button>
+  </div>
     <button mat-flat-button color="warn" class="btnTabelle noselect" (click)="openTabelle()">{{this.btnTabelle}}</button>
     <div class="modus">
       <div class="btnSchweiz btn" (click)="clickBtnSwiss()">
