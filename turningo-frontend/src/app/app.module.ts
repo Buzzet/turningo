@@ -16,6 +16,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SubmitResultsComponent } from './submit-results/submit-results.component';
 import { TabelleComponent } from './tabelle/tabelle.component';
 import {MatTableModule} from '@angular/material/table';
+import { TournamentDeleteWarningPopupComponent } from './tournament-delete-warning-popup/tournament-delete-warning-popup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatTableModule} from '@angular/material/table';
     FieldsviewComponent,
     NewPlayerComponent,
     SubmitResultsComponent,
-    TabelleComponent
+    TabelleComponent,
+    TournamentDeleteWarningPopupComponent
   ],
   imports: [
     BrowserModule,

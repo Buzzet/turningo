@@ -81,4 +81,10 @@ public class MongoService {
         }
 
     }
+
+    public void deleteTournament() {
+        this.courtRepo.deleteAll();
+        this.playcardRepo.deleteAll();
+        this.matchplanRepository.deleteAll();
+    }
 }

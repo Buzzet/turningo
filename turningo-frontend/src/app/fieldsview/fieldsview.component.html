@@ -1,3 +1,6 @@
+<div class="deleteBtn" (click)="deleteTournament()">
+  <img src="../../assets/delete-24px.svg"/>
+</div>
 <div class="outer">
     <div class="field" *ngFor="let field of courts" [ngClass]="fieldHasAMatch(field.id) ? 'btn' : ''" (click)="submitResults(field.id)">
       <div class="fieldName noselect">{{field.courtname}}</div>

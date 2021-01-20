@@ -29,8 +29,7 @@ export class SubmitResultsComponent implements OnInit {
     const playcardTeam1: Playcard = this.matchplanService.matchplan.matchplan[this.data.fieldId][0];
     // @ts-ignore
     const playcardTeam2: Playcard = this.matchplanService.matchplan.matchplan[this.data.fieldId][1];
-    console.log(this.pointsTeam1);
-    if (this.pointsTeam1 > this.pointsTeam2){
+    if (parseInt(this.pointsTeam1, 10) > parseInt(this.pointsTeam2, 10)){
       playcardTeam1.amountWins++;
     } else {
       playcardTeam2.amountWins++;

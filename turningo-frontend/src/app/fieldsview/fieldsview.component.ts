@@ -6,6 +6,7 @@ import {MatchplanService} from '../services/matchplan.service';
 import {MatDialog} from '@angular/material/dialog';
 import {NewPlayerComponent} from '../new-player/new-player.component';
 import {SubmitResultsComponent} from '../submit-results/submit-results.component';
+import {TournamentDeleteWarningPopupComponent} from '../tournament-delete-warning-popup/tournament-delete-warning-popup.component';
 
 @Component({
   selector: 'app-fieldsview',
@@ -92,5 +93,11 @@ export class FieldsviewComponent implements OnInit {
   getWinsByMatchID(id: string, teamNumber: number): string {
     // @ts-ignore
     return this.matchplanService.matchplan.matchplan[id][teamNumber].amountWins;
+  }
+
+  deleteTournament(): void {
+    const dialogRef = this.dialog.open(TournamentDeleteWarningPopupComponent, {
+      width: '550px'
+    });
   }
 }
